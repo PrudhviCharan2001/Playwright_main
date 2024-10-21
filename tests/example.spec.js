@@ -1,19 +1,182 @@
-// @ts-check
-const { test, expect } = require('@playwright/test');
-
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+import { test, expect } from "@playwright/test";
+import { Sign } from "crypto";
+const { ObjectManager } = require("../Objects/ObjectManager");
+const { Signin } = require("../Objects/Signin");
+test.describe.configure({ mode: "parallel" });
+test("test1", async ({ page }) => {
+  await page.goto("https://app3.use.rsign.com/");
+  await page.getByRole("button", { name: "Single Sign-on (SSO)" }).click();
+  const page1Promise = page.waitForEvent("popup");
+  await page.getByRole("button", { name: "Continue with Microsoft" }).click();
+  const page1 = await page1Promise;
+  await page1
+    .getByLabel("Enter your email, phone, or")
+    .fill("prudhvi.vu@rpostlabs.com");
+  await page1.getByRole("button", { name: "Next" }).click();
+  await page1.locator("#i0118").fill("Charan@2001");
+  await page1.getByRole("button", { name: "Sign in" }).click();
+  await page1.getByRole("button", { name: "Yes" }).click();
+  await page.waitForLoadState();
 });
-
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+test("test2", async ({ page }) => {
+  await page.goto("https://app3.use.rsign.com/");
+  await page.getByRole("button", { name: "Single Sign-on (SSO)" }).click();
+  const page1Promise = page.waitForEvent("popup");
+  await page.getByRole("button", { name: "Continue with Microsoft" }).click();
+  const page1 = await page1Promise;
+  await page1
+    .getByLabel("Enter your email, phone, or")
+    .fill("prudhvi.vu@rpostlabs.com");
+  await page1.getByRole("button", { name: "Next" }).click();
+  await page1.locator("#i0118").fill("Charan@2001");
+  await page1.getByRole("button", { name: "Sign in" }).click();
+  await page1.getByRole("button", { name: "Yes" }).click();
+  await page
+    .locator("#bs-example-navbar-collapse-1")
+    .getByRole("link", { name: "Send" })
+    .click();
+});
+test("test3", async ({ page }) => {
+  await page.goto("https://app3.use.rsign.com/");
+  await page.getByRole("button", { name: "Single Sign-on (SSO)" }).click();
+  const page1Promise = page.waitForEvent("popup");
+  await page.getByRole("button", { name: "Continue with Microsoft" }).click();
+  const page1 = await page1Promise;
+  await page1
+    .getByLabel("Enter your email, phone, or")
+    .fill("prudhvi.vu@rpostlabs.com");
+  await page1.getByRole("button", { name: "Next" }).click();
+  await page1.locator("#i0118").fill("Charan@2001");
+  await page1.getByRole("button", { name: "Sign in" }).click();
+  await page1.getByRole("button", { name: "Yes" }).click();
+  await page
+    .locator("#bs-example-navbar-collapse-1")
+    .getByRole("link", { name: "Send" })
+    .click();
+});
+test("test4", async ({ page }) => {
+  await page.goto("https://app3.use.rsign.com/");
+  await page.getByRole("button", { name: "Single Sign-on (SSO)" }).click();
+  const page1Promise = page.waitForEvent("popup");
+  await page.getByRole("button", { name: "Continue with Microsoft" }).click();
+  const page1 = await page1Promise;
+  await page1
+    .getByLabel("Enter your email, phone, or")
+    .fill("prudhvi.vu@rpostlabs.com");
+  await page1.getByRole("button", { name: "Next" }).click();
+  await page1.locator("#i0118").fill("Charan@2001");
+  await page1.getByRole("button", { name: "Sign in" }).click();
+  await page1.getByRole("button", { name: "Yes" }).click();
+  await page
+    .locator("#bs-example-navbar-collapse-1")
+    .getByRole("link", { name: "Send" })
+    .click();
+});
+test("test5", async ({ page }) => {
+  await page.goto("https://app3.use.rsign.com/");
+  await page.getByRole("button", { name: "Single Sign-on (SSO)" }).click();
+  const page1Promise = page.waitForEvent("popup");
+  await page.getByRole("button", { name: "Continue with Microsoft" }).click();
+  const page1 = await page1Promise;
+  await page1
+    .getByLabel("Enter your email, phone, or")
+    .fill("prudhvi.vu@rpostlabs.com");
+  await page1.getByRole("button", { name: "Next" }).click();
+  await page1.locator("#i0118").fill("Charan@2001");
+  await page1.getByRole("button", { name: "Sign in" }).click();
+  await page1.getByRole("button", { name: "Yes" }).click();
+  await page
+    .locator("#bs-example-navbar-collapse-1")
+    .getByRole("link", { name: "Send" })
+    .click();
+});
+test("test6", async ({ page }) => {
+  await page.goto("https://app3.use.rsign.com/");
+  await page.getByRole("button", { name: "Single Sign-on (SSO)" }).click();
+  const page1Promise = page.waitForEvent("popup");
+  await page.getByRole("button", { name: "Continue with Microsoft" }).click();
+  const page1 = await page1Promise;
+  await page1
+    .getByLabel("Enter your email, phone, or")
+    .fill("prudhvi.vu@rpostlabs.com");
+  await page1.getByRole("button", { name: "Next" }).click();
+  await page1.locator("#i0118").fill("Charan@2001");
+  await page1.getByRole("button", { name: "Sign in" }).click();
+  await page1.getByRole("button", { name: "Yes" }).click();
+  await page
+    .locator("#bs-example-navbar-collapse-1")
+    .getByRole("link", { name: "Send" })
+    .click();
+});
+test("test7", async ({ page }) => {
+  await page.goto("https://app3.use.rsign.com/");
+  await page.getByRole("button", { name: "Single Sign-on (SSO)" }).click();
+  const page1Promise = page.waitForEvent("popup");
+  await page.getByRole("button", { name: "Continue with Microsoft" }).click();
+  const page1 = await page1Promise;
+  await page1
+    .getByLabel("Enter your email, phone, or")
+    .fill("prudhvi.vu@rpostlabs.com");
+  await page1.getByRole("button", { name: "Next" }).click();
+  await page1.locator("#i0118").fill("Charan@2001");
+  await page1.getByRole("button", { name: "Sign in" }).click();
+  await page1.getByRole("button", { name: "Yes" }).click();
+  await page
+    .locator("#bs-example-navbar-collapse-1")
+    .getByRole("link", { name: "Send" })
+    .click();
+});
+test("test8", async ({ page }) => {
+  await page.goto("https://app3.use.rsign.com/");
+  await page.getByRole("button", { name: "Single Sign-on (SSO)" }).click();
+  const page1Promise = page.waitForEvent("popup");
+  await page.getByRole("button", { name: "Continue with Microsoft" }).click();
+  const page1 = await page1Promise;
+  await page1
+    .getByLabel("Enter your email, phone, or")
+    .fill("prudhvi.vu@rpostlabs.com");
+  await page1.getByRole("button", { name: "Next" }).click();
+  await page1.locator("#i0118").fill("Charan@2001");
+  await page1.getByRole("button", { name: "Sign in" }).click();
+  await page1.getByRole("button", { name: "Yes" }).click();
+  await page
+    .locator("#bs-example-navbar-collapse-1")
+    .getByRole("link", { name: "Send" })
+    .click();
+});
+test("test9", async ({ page }) => {
+  await page.goto("https://app3.use.rsign.com/");
+  await page.getByRole("button", { name: "Single Sign-on (SSO)" }).click();
+  const page1Promise = page.waitForEvent("popup");
+  await page.getByRole("button", { name: "Continue with Microsoft" }).click();
+  const page1 = await page1Promise;
+  await page1
+    .getByLabel("Enter your email, phone, or")
+    .fill("prudhvi.vu@rpostlabs.com");
+  await page1.getByRole("button", { name: "Next" }).click();
+  await page1.locator("#i0118").fill("Charan@2001");
+  await page1.getByRole("button", { name: "Sign in" }).click();
+  await page1.getByRole("button", { name: "Yes" }).click();
+  await page
+    .locator("#bs-example-navbar-collapse-1")
+    .getByRole("link", { name: "Send" })
+    .click();
+});
+test("test10", async ({ page }) => {
+  await page.goto("https://app3.use.rsign.com/");
+  await page.getByRole("button", { name: "Single Sign-on (SSO)" }).click();
+  const page1Promise = page.waitForEvent("popup");
+  await page.getByRole("button", { name: "Continue with Microsoft" }).click();
+  const page1 = await page1Promise;
+  await page1
+    .getByLabel("Enter your email, phone, or")
+    .fill("prudhvi.vu@rpostlabs.com");
+  await page1.getByRole("button", { name: "Next" }).click();
+  await page1.locator("#i0118").fill("Charan@2001");
+  await page1.getByRole("button", { name: "Sign in" }).click();
+  await page1.getByRole("button", { name: "Yes" }).click();
+  await page
+    .locator("#bs-example-navbar-collapse-1")
+    .getByRole("link", { name: "Send" })
+    .click();
 });
