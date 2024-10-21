@@ -1,7 +1,4 @@
-import { test, expect } from "@playwright/test";
-import { Sign } from "crypto";
-const { ObjectManager } = require("../Objects/ObjectManager");
-const { Signin } = require("../Objects/Signin");
+import { test } from "@playwright/test";
 test.describe.configure({ mode: "parallel" });
 test("test1", async ({ page }) => {
   await page.goto("https://app3.use.rsign.com/");
