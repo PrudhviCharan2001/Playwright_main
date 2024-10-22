@@ -2,7 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('w/o docker') {
+            steps {
+                sh '''echo Without docker
+                touch "containerN.txt"
+                '''
+            }
+        }
+
+        stage('w/ docker') {
             agent {
                 docker {
                     image 'node:18-alpine'
@@ -10,14 +18,9 @@ pipeline {
                 }
             }
             steps {
-                sh '''
-                    ls -la
-                    node --version
-                    npm --version
-                    npm ci
-                    ls -la
-                '''
-            }
+                sh '''echo With docker
+                        touch containerY.txt
+                 '''            }
         }
     }
 }
